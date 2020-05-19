@@ -18,7 +18,6 @@ script:
   - docker build -t node-app .
   - docker tag node-app arnaudlemaire/node-app:latest
 
-# Tasks to perform after the process is successful. Formatting the Docker username and password as below enables you to programmatically log in without having the password exposed in logs.
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push arnaudlemaire/node-app
